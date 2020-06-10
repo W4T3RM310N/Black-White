@@ -20,7 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = "Player")
-		class UCapsuleComponent* m_CapsuleComponent;
+		class UBoxComponent* m_BoxComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Player")
 		class UPaperSpriteComponent* m_SpriteComponent;
@@ -48,4 +48,7 @@ public:
 	void MoveRight(float value);
 
 	void SwitchGameState();
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 };

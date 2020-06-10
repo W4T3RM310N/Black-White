@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Monochrome",
+			"Path": "C:\\Users\\Ben\\Desktop\\UnrealProjects\\Monochrome\\Source\\Monochrome.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "MonochromeEditor",
+			"Path": "C:\\Users\\Ben\\Desktop\\UnrealProjects\\Monochrome\\Source\\MonochromeEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

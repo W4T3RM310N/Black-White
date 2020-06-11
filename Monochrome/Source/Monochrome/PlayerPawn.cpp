@@ -3,7 +3,7 @@
 
 #include "PlayerPawn.h"
 #include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
+#include "Components/BoxComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "PaperSpriteComponent.h"
 #include "Monochrome/MonochromeGameStateBase.h"
@@ -14,16 +14,18 @@ APlayerPawn::APlayerPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	m_CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
-	m_CapsuleComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	m_CapsuleComponent->SetCollisionProfileName("BlockAllDynamic");
-	m_CapsuleComponent->SetNotifyRigidBodyCollision(true);
-	m_CapsuleComponent->SetSimulatePhysics(true);
-	m_CapsuleComponent->SetEnableGravity(false);
-	m_CapsuleComponent->BodyInstance.bLockXRotation = true;
-	m_CapsuleComponent->BodyInstance.bLockYRotation = true;
-	m_CapsuleComponent->BodyInstance.bLockZRotation = true;
-	RootComponent = m_CapsuleComponent;
+	m_BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("CapsuleComponent"));
+	m_BoxComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	m_BoxComponent->SetCollisionProfileName("BlockAllDynamic");
+	m_BoxComponent->SetNotifyRigidBodyCollision(true);
+	m_BoxComponent->SetSimulatePhysics(true);
+	m_BoxComponent->SetEnableGravity(true);
+	m_BoxComponent->BodyInstance.bLockXRotation = true;
+	m_BoxComponent->BodyInstance.bLockYRotation = true;
+	m_BoxComponent->BodyInstance.bLockZRotation = true;
+	m_BoxComponent->BodyInstance.bLockYTranslation = true; 
+	m_BoxComponent->OnComponentHit.AddDynamic(this, &APlayerPawn::OnHit); 
+	RootComponent = m_BoxComponent;
 
 	m_SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("SpriteComponent"));
 	m_SpriteComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -47,7 +49,8 @@ APlayerPawn::APlayerPawn()
 void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	m_RespawnPosition = GetActorLocation(); 
 }
 
 // Called every frame
@@ -68,6 +71,7 @@ void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerPawn::MoveRight);
 
 	PlayerInputComponent->BindAction("SwitchGameState", IE_Pressed, this, &APlayerPawn::SwitchGameState);
+	PlayerInputComponent->BindAction("Respawn", IE_Pressed, this, &APlayerPawn::Respawn);
 }
 
 void APlayerPawn::MoveUp(float value)
@@ -99,5 +103,29 @@ void APlayerPawn::SwitchGameState()
 			OurGameState->SetGameColorState(GameStateBlack);
 		}
 	}
+}
+
+void APlayerPawn::SetRespawnPosition(FVector newRespawnPosition)
+{
+	m_RespawnPosition = newRespawnPosition; 
+}
+
+void APlayerPawn::Respawn()
+{
+	SetActorLocation(m_RespawnPosition); 
+}
+
+void APlayerPawn::SetCheckpoint(ACheckpointActor* newCheckpoint)
+{
+	m_CurrentCheckpoint = newCheckpoint; 
+}
+
+ACheckpointActor* APlayerPawn::GetCheckpoint()
+{
+	return m_CurrentCheckpoint;
+}
+
+void APlayerPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
+{
 }
 

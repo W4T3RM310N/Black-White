@@ -43,15 +43,18 @@ void ABlockActor::Tick(float DeltaTime)
 		AMonochromeGameStateBase* OurGameState;
 		OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
 
-		if ((int)OurGameState->GetGameColorState() == (int)m_BlockColor)
+		if (m_BlockColor != BlockNeutral)
 		{
-			SetActorHiddenInGame(false);
-			SetActorEnableCollision(true);
-		}
-		else
-		{
-			SetActorHiddenInGame(true);
-			SetActorEnableCollision(false);
+			if ((int)OurGameState->GetGameColorState() == (int)m_BlockColor)
+			{
+				SetActorHiddenInGame(false);
+				SetActorEnableCollision(true);
+			}
+			else
+			{
+				SetActorHiddenInGame(true);
+				SetActorEnableCollision(false);
+			}
 		}
 	}
 }

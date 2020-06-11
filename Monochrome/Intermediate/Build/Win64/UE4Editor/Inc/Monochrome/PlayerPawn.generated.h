@@ -8,14 +8,48 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UPrimitiveComponent;
+class AActor;
+struct FVector;
+struct FHitResult;
 #ifdef MONOCHROME_PlayerPawn_generated_h
 #error "PlayerPawn.generated.h already included, missing '#pragma once' in PlayerPawn.h"
 #endif
 #define MONOCHROME_PlayerPawn_generated_h
 
 #define Monochrome_Source_Monochrome_PlayerPawn_h_12_SPARSE_DATA
-#define Monochrome_Source_Monochrome_PlayerPawn_h_12_RPC_WRAPPERS
-#define Monochrome_Source_Monochrome_PlayerPawn_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define Monochrome_Source_Monochrome_PlayerPawn_h_12_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnHit) \
+	{ \
+		P_GET_OBJECT(UPrimitiveComponent,Z_Param_HitComp); \
+		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
+		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
+		P_GET_STRUCT(FVector,Z_Param_NormalImpulse); \
+		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_Hit); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->OnHit(Z_Param_HitComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit); \
+		P_NATIVE_END; \
+	}
+
+
+#define Monochrome_Source_Monochrome_PlayerPawn_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnHit) \
+	{ \
+		P_GET_OBJECT(UPrimitiveComponent,Z_Param_HitComp); \
+		P_GET_OBJECT(AActor,Z_Param_OtherActor); \
+		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OtherComp); \
+		P_GET_STRUCT(FVector,Z_Param_NormalImpulse); \
+		P_GET_STRUCT_REF(FHitResult,Z_Param_Out_Hit); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->OnHit(Z_Param_HitComp,Z_Param_OtherActor,Z_Param_OtherComp,Z_Param_NormalImpulse,Z_Param_Out_Hit); \
+		P_NATIVE_END; \
+	}
+
+
 #define Monochrome_Source_Monochrome_PlayerPawn_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAPlayerPawn(); \
@@ -59,7 +93,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerPawn); \
 
 
 #define Monochrome_Source_Monochrome_PlayerPawn_h_12_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__m_CapsuleComponent() { return STRUCT_OFFSET(APlayerPawn, m_CapsuleComponent); } \
+	FORCEINLINE static uint32 __PPO__m_BoxComponent() { return STRUCT_OFFSET(APlayerPawn, m_BoxComponent); } \
 	FORCEINLINE static uint32 __PPO__m_SpriteComponent() { return STRUCT_OFFSET(APlayerPawn, m_SpriteComponent); } \
 	FORCEINLINE static uint32 __PPO__m_SpringArm() { return STRUCT_OFFSET(APlayerPawn, m_SpringArm); } \
 	FORCEINLINE static uint32 __PPO__m_CameraComponent() { return STRUCT_OFFSET(APlayerPawn, m_CameraComponent); } \

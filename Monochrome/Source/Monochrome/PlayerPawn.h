@@ -20,7 +20,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere, Category = "Player")
-		class UCapsuleComponent* m_CapsuleComponent;
+		class UBoxComponent* m_BoxComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Player")
 		class UPaperSpriteComponent* m_SpriteComponent;
@@ -34,7 +34,11 @@ protected:
 	FVector m_CurrentVelocity = FVector::ZeroVector;
 
 	UPROPERTY(EditAnywhere, Category = "Player")
-		float m_MoveSpeed = 700.0f; 
+		float m_MoveSpeed = 700.0f;
+
+	FVector m_RespawnPosition;
+
+	class ACheckpointActor* m_CurrentCheckpoint = nullptr; 
 
 public:	
 	// Called every frame
@@ -48,4 +52,15 @@ public:
 	void MoveRight(float value);
 
 	void SwitchGameState();
+
+	void SetRespawnPosition(FVector newRespawnPosition); 
+
+	void Respawn(); 
+
+	void SetCheckpoint(ACheckpointActor* newCheckpoint);
+
+	ACheckpointActor* GetCheckpoint();
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 };

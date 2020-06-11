@@ -8,6 +8,7 @@
 /NODEFAULTLIB
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\MonochromeEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\BlockActor.cpp.obj"
+"C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\DefaultPlayerController.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MainMenuController.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MainMenuHUD.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Monochrome.cpp.obj"
@@ -16,6 +17,7 @@
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MonochromeMenuMode.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\PlayerPawn.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\BlockActor.gen.cpp.obj"
+"C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\DefaultPlayerController.gen.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MainMenuController.gen.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MainMenuHUD.gen.cpp.obj"
 "C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Monochrome.init.gen.cpp.obj"

@@ -274,6 +274,8 @@
     <None Include="..\..\Config\DefaultInput.ini"/>
     <ClCompile Include="..\..\Source\Monochrome\BlockActor.cpp"/>
     <ClInclude Include="..\..\Source\Monochrome\BlockActor.h"/>
+    <ClCompile Include="..\..\Source\Monochrome\DefaultPlayerController.cpp"/>
+    <ClInclude Include="..\..\Source\Monochrome\DefaultPlayerController.h"/>
     <ClCompile Include="..\..\Source\Monochrome\MainMenuController.cpp"/>
     <ClInclude Include="..\..\Source\Monochrome\MainMenuController.h"/>
     <ClCompile Include="..\..\Source\Monochrome\MainMenuHUD.cpp"/>

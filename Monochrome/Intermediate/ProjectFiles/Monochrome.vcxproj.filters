@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Monochrome.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{D2FD3A13-FC9E-434B-878B-DC7CF7FB3910}</UniqueIdentifier>
+      <UniqueIdentifier>{4A827AD5-2455-4328-A627-FF0A7134CD23}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Monochrome.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{46555193-F932-416B-9521-CC9F4DC8BAAB}</UniqueIdentifier>
+      <UniqueIdentifier>{E768D224-7DC6-46F0-B901-575DC439CAF3}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,12 +27,18 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Monochrome">
-      <UniqueIdentifier>{2297C60D-8730-4E62-81C6-85B4763C7501}</UniqueIdentifier>
+      <UniqueIdentifier>{1A125528-6D91-4187-9C76-22EAACDF8EFB}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Monochrome\BlockActor.cpp">
       <Filter>Source\Monochrome</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Monochrome\BlockActor.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Monochrome\DefaultPlayerController.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Monochrome\DefaultPlayerController.h">
       <Filter>Source\Monochrome</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Monochrome\MainMenuController.cpp">

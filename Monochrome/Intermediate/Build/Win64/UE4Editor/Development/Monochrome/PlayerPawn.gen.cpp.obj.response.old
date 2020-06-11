@@ -230,6 +230,10 @@
 /I Runtime\AudioMixerCore\Public
 /I D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Inc\Monochrome
 /I D:\adale\Desktop\Black-White\Monochrome\Source
+/I ..\Plugins\2D\Paper2D\Intermediate\Build\Win64\UE4Editor\Inc\Paper2D
+/I ..\Plugins\2D\Paper2D\Source
+/I ..\Plugins\2D\Paper2D\Source\Paper2D\Classes
+/I ..\Plugins\2D\Paper2D\Source\Paper2D\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf

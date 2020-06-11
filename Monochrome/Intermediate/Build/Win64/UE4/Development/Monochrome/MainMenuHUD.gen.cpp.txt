@@ -1,0 +1,10 @@
+D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4\Development\Monochrome\Definitions.Monochrome.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\adale\Desktop\Black-White\Monochrome\Source\Monochrome/MainMenuHUD.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
+D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\DebugTextInfo.generated.h
+D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4\Inc\Engine\HUD.generated.h
+D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4\Inc\Monochrome\MainMenuHUD.generated.h

@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Monochrome.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{2EB62690-A039-4563-B9E4-CC9F512AC543}</UniqueIdentifier>
+      <UniqueIdentifier>{2E1738D4-6AFA-46F8-B7AD-267398FE6D61}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Monochrome.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{1F4526CE-206D-4DEE-8A81-AE90C39FCD55}</UniqueIdentifier>
+      <UniqueIdentifier>{E8B5645A-D763-4E56-9E9F-44E14EFF7F7C}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,12 +27,36 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Monochrome">
-      <UniqueIdentifier>{68F02A4C-92DD-4F78-8FDC-71973C5C988D}</UniqueIdentifier>
+      <UniqueIdentifier>{0157B8F7-8D64-4307-86DC-6B63371B09D9}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Monochrome\BlockActor.cpp">
       <Filter>Source\Monochrome</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Monochrome\BlockActor.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Monochrome\CheckpointActor.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Monochrome\CheckpointActor.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Monochrome\DefaultPlayerController.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Monochrome\DefaultPlayerController.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Monochrome\GameStateButtonBase.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Monochrome\GameStateButtonBase.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Monochrome\MainMenuController.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Monochrome\MainMenuController.h">
       <Filter>Source\Monochrome</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Monochrome\MainMenuHUD.cpp">
@@ -74,27 +98,11 @@
     <ClInclude Include="..\..\Source\Monochrome\PlayerPawn.h">
       <Filter>Source\Monochrome</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\Monochrome\GameStateButtonBase.h">
-      <Filter>Source\Monochrome</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Monochrome\VanishGameStateButton.h">
-      <Filter>Source\Monochrome</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Monochrome\CheckpointActor.h">
-      <Filter>Source\Monochrome</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\Monochrome\GameStateButtonBase.cpp">
-      <Filter>Source\Monochrome</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Monochrome\VanishGameStateButton.cpp">
       <Filter>Source\Monochrome</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Monochrome\CheckpointActor.cpp">
+    <ClInclude Include="..\..\Source\Monochrome\VanishGameStateButton.h">
       <Filter>Source\Monochrome</Filter>
-    </ClCompile>
+    </ClInclude>
   </ItemGroup>
 </Project>

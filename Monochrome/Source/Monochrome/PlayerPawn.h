@@ -19,8 +19,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	/*UPROPERTY(EditAnywhere, Category = "Player")
+		class UBoxComponent* m_BoxComponent;*/
+
 	UPROPERTY(EditAnywhere, Category = "Player")
-		class UBoxComponent* m_BoxComponent;
+		class UCapsuleComponent* m_CapsuleComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Player")
 		class UPaperSpriteComponent* m_SpriteComponent;

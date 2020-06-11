@@ -1,0 +1,5 @@
+D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4\Development\Monochrome\Definitions.Monochrome.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+D:\adale\Desktop\Black-White\Monochrome\Source\Monochrome/PlayerPawn.h
+D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4\Inc\Monochrome\PlayerPawn.generated.h

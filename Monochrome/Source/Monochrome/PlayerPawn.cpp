@@ -4,6 +4,7 @@
 #include "PlayerPawn.h"
 #include "Camera/CameraComponent.h"
 #include "Components/BoxComponent.h"
+#include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "PaperSpriteComponent.h"
 #include "Monochrome/MonochromeGameStateBase.h"
@@ -14,7 +15,7 @@ APlayerPawn::APlayerPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	m_BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("CapsuleComponent"));
+	/*m_BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("CapsuleComponent"));
 	m_BoxComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	m_BoxComponent->SetCollisionProfileName("BlockAllDynamic");
 	m_BoxComponent->SetNotifyRigidBodyCollision(true);
@@ -25,7 +26,20 @@ APlayerPawn::APlayerPawn()
 	m_BoxComponent->BodyInstance.bLockZRotation = true;
 	m_BoxComponent->BodyInstance.bLockYTranslation = true; 
 	m_BoxComponent->OnComponentHit.AddDynamic(this, &APlayerPawn::OnHit); 
-	RootComponent = m_BoxComponent;
+	RootComponent = m_BoxComponent;*/
+
+	m_CapsuleComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("CapsuleComponent"));
+	m_CapsuleComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	m_CapsuleComponent->SetCollisionProfileName("BlockAllDynamic");
+	m_CapsuleComponent->SetNotifyRigidBodyCollision(true);
+	m_CapsuleComponent->SetSimulatePhysics(true);
+	m_CapsuleComponent->SetEnableGravity(true);
+	m_CapsuleComponent->BodyInstance.bLockXRotation = true;
+	m_CapsuleComponent->BodyInstance.bLockYRotation = true;
+	m_CapsuleComponent->BodyInstance.bLockZRotation = true;
+	m_CapsuleComponent->BodyInstance.bLockYTranslation = true;
+	m_CapsuleComponent->OnComponentHit.AddDynamic(this, &APlayerPawn::OnHit);
+	RootComponent = m_CapsuleComponent;
 
 	m_SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("SpriteComponent"));
 	m_SpriteComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);

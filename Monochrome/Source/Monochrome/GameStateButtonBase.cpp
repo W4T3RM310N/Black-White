@@ -84,48 +84,79 @@ void AGameStateButtonBase::Tick(float DeltaTime)
 
 void AGameStateButtonBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	if (bCanBePressed)
-	{
-		if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
-		{
-			//Really annoying that I had to check each axis but wasn't working properly otherwise. 
-			if (NormalImpulse.Z > 0.0f && NormalImpulse.X == 0.0f && NormalImpulse.Y == 0.0f)
-			{
-				GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
-				bCanBePressed = false; 
-				if (m_CurrentButtonColorState == ButtonBlack)
-				{
-					m_SpriteComponent->SetSprite(m_WhiteButtonPressedSprite);
-					m_CurrentButtonColorState = ButtonWhite;
-					
-					UWorld* World = GetWorld(); 
-					if (World)
-					{
-						AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState()); 
-						OurGameState->SetGameColorState(GameStateWhite); 
-					}
-				}
-				else if (m_CurrentButtonColorState == ButtonWhite)
-				{
-					m_SpriteComponent->SetSprite(m_BlackButtonPressedSprite);
-					m_CurrentButtonColorState = ButtonBlack; 
+	//if (bCanBePressed)
+	//{
+	//	if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
+	//	{
+	//		//Really annoying that I had to check each axis but wasn't working properly otherwise. 
+	//		if (NormalImpulse.Z > 0.0f && NormalImpulse.X == 0.0f && NormalImpulse.Y == 0.0f)
+	//		{
+	//			GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
+	//			bCanBePressed = false; 
+	//			if (m_CurrentButtonColorState == ButtonBlack)
+	//			{
+	//				m_SpriteComponent->SetSprite(m_WhiteButtonPressedSprite);
+	//				m_CurrentButtonColorState = ButtonWhite;
+	//				
+	//				UWorld* World = GetWorld(); 
+	//				if (World)
+	//				{
+	//					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState()); 
+	//					OurGameState->SetGameColorState(GameStateWhite); 
+	//				}
+	//			}
+	//			else if (m_CurrentButtonColorState == ButtonWhite)
+	//			{
+	//				m_SpriteComponent->SetSprite(m_BlackButtonPressedSprite);
+	//				m_CurrentButtonColorState = ButtonBlack; 
 
-					UWorld* World = GetWorld();
-					if (World)
-					{
-						AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-						OurGameState->SetGameColorState(GameStateBlack);
-					}
-				}
-			}
-		}
-	}
+	//				UWorld* World = GetWorld();
+	//				if (World)
+	//				{
+	//					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+	//					OurGameState->SetGameColorState(GameStateBlack);
+	//				}
+	//			}
+	//		}
+	//	}
+	//}
 	
 }
 
 void AGameStateButtonBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
+	if (bCanBePressed)
+	{
+		if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
+			bCanBePressed = false;
+			if (m_CurrentButtonColorState == ButtonBlack)
+			{
+				m_SpriteComponent->SetSprite(m_WhiteButtonPressedSprite);
+				m_CurrentButtonColorState = ButtonWhite;
 
+				UWorld* World = GetWorld();
+				if (World)
+				{
+					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+					OurGameState->SetGameColorState(GameStateWhite);
+				}
+			}
+			else if (m_CurrentButtonColorState == ButtonWhite)
+			{
+				m_SpriteComponent->SetSprite(m_BlackButtonPressedSprite);
+				m_CurrentButtonColorState = ButtonBlack;
+
+				UWorld* World = GetWorld();
+				if (World)
+				{
+					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+					OurGameState->SetGameColorState(GameStateBlack);
+				}
+			}
+		}
+	}
 }
 
 void AGameStateButtonBase::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)

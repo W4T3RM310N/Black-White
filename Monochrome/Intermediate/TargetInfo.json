@@ -2,12 +2,12 @@
 	"Targets": [
 		{
 			"Name": "Monochrome",
-			"Path": "C:\\Users\\Ben\\Desktop\\Black-White\\Monochrome\\Source\\Monochrome.Target.cs",
+			"Path": "D:\\adale\\Desktop\\Black-White\\Monochrome\\Source\\Monochrome.Target.cs",
 			"Type": "Game"
 		},
 		{
 			"Name": "MonochromeEditor",
-			"Path": "C:\\Users\\Ben\\Desktop\\Black-White\\Monochrome\\Source\\MonochromeEditor.Target.cs",
+			"Path": "D:\\adale\\Desktop\\Black-White\\Monochrome\\Source\\MonochromeEditor.Target.cs",
 			"Type": "Editor"
 		}
 	]

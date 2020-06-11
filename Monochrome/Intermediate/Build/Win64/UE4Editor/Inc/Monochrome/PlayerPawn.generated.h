@@ -93,7 +93,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(APlayerPawn); \
 
 
 #define Monochrome_Source_Monochrome_PlayerPawn_h_12_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__m_BoxComponent() { return STRUCT_OFFSET(APlayerPawn, m_BoxComponent); } \
+	FORCEINLINE static uint32 __PPO__m_CapsuleComponent() { return STRUCT_OFFSET(APlayerPawn, m_CapsuleComponent); } \
 	FORCEINLINE static uint32 __PPO__m_SpriteComponent() { return STRUCT_OFFSET(APlayerPawn, m_SpriteComponent); } \
 	FORCEINLINE static uint32 __PPO__m_SpringArm() { return STRUCT_OFFSET(APlayerPawn, m_SpringArm); } \
 	FORCEINLINE static uint32 __PPO__m_CameraComponent() { return STRUCT_OFFSET(APlayerPawn, m_CameraComponent); } \

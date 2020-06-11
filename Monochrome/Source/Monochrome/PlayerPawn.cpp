@@ -49,7 +49,8 @@ APlayerPawn::APlayerPawn()
 void APlayerPawn::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	m_RespawnPosition = GetActorLocation(); 
 }
 
 // Called every frame
@@ -70,6 +71,7 @@ void APlayerPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAxis("MoveRight", this, &APlayerPawn::MoveRight);
 
 	PlayerInputComponent->BindAction("SwitchGameState", IE_Pressed, this, &APlayerPawn::SwitchGameState);
+	PlayerInputComponent->BindAction("Respawn", IE_Pressed, this, &APlayerPawn::Respawn);
 }
 
 void APlayerPawn::MoveUp(float value)
@@ -103,8 +105,27 @@ void APlayerPawn::SwitchGameState()
 	}
 }
 
+void APlayerPawn::SetRespawnPosition(FVector newRespawnPosition)
+{
+	m_RespawnPosition = newRespawnPosition; 
+}
+
+void APlayerPawn::Respawn()
+{
+	SetActorLocation(m_RespawnPosition); 
+}
+
+void APlayerPawn::SetCheckpoint(ACheckpointActor* newCheckpoint)
+{
+	m_CurrentCheckpoint = newCheckpoint; 
+}
+
+ACheckpointActor* APlayerPawn::GetCheckpoint()
+{
+	return m_CurrentCheckpoint;
+}
+
 void APlayerPawn::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Blue, TEXT("Player hit something")); 
 }
 

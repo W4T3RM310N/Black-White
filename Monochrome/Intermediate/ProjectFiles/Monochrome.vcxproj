@@ -265,6 +265,10 @@
     <NMakeOutput>..\..\Binaries\Win64\Monochrome-Win64-Shipping.exe</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Monochrome\CheckpointActor.cpp" />
+    <ClCompile Include="..\..\Source\Monochrome\VanishGameStateButton.cpp" />
+    <ClInclude Include="..\..\Source\Monochrome\CheckpointActor.h" />
+    <ClInclude Include="..\..\Source\Monochrome\VanishGameStateButton.h" />
     <None Include="..\..\Monochrome.uproject" />
     <None Include="..\..\Source\Monochrome.Target.cs" />
     <None Include="..\..\Source\MonochromeEditor.Target.cs" />

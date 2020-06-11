@@ -1,11 +1,18 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (D:\adale\Desktop\Black-White).
+  Parsing headers for MonochromeEditor
+    Running UnrealHeaderTool "D:\adale\Desktop\Black-White\Monochrome\Monochrome.uproject" "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\MonochromeEditor\DebugGame\MonochromeEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for MonochromeEditor in 7.538278 seconds
   Building MonochromeEditor...
   Using Visual Studio 2019 14.24.28316 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314) and Windows 10.0.18362.0 SDK (D:\Windows Kits\10).
-  Building 3 actions with 8 processes...
-    [1/3] UE4Editor-Monochrome-Win64-DebugGame.lib
+  Building 7 actions with 8 processes...
+    [1/7] VanishGameStateButton.gen.cpp
+    [2/7] GameStateButtonBase.gen.cpp
+    [3/7] GameStateButtonBase.cpp
+    [4/7] VanishGameStateButton.cpp
+    [5/7] UE4Editor-Monochrome-Win64-DebugGame.lib
        Creating library D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\DebugGame\Monochrome\UE4Editor-Monochrome-Win64-DebugGame.lib and object D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\DebugGame\Monochrome\UE4Editor-Monochrome-Win64-DebugGame.exp
-    [2/3] UE4Editor-Monochrome-Win64-DebugGame.dll
+    [6/7] UE4Editor-Monochrome-Win64-DebugGame.dll
        Creating library D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\DebugGame\Monochrome\UE4Editor-Monochrome-Win64-DebugGame.suppressed.lib and object D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\DebugGame\Monochrome\UE4Editor-Monochrome-Win64-DebugGame.suppressed.exp
-    [3/3] MonochromeEditor-Win64-DebugGame.target
-  Total time in Parallel executor: 1.31 seconds
-  Total execution time: 2.34 seconds
+    [7/7] MonochromeEditor-Win64-DebugGame.target
+  Total time in Parallel executor: 11.66 seconds
+  Total execution time: 20.17 seconds

@@ -153,7 +153,7 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		{ "ModuleRelativePath", "GameStateButtonBase.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameStateButtonBase, nullptr, "OnHit", nullptr, nullptr, sizeof(GameStateButtonBase_eventOnHit_Parms), Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00C20401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameStateButtonBase, nullptr, "OnHit", nullptr, nullptr, sizeof(GameStateButtonBase_eventOnHit_Parms), Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00C20400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnHit_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AGameStateButtonBase_OnHit()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -234,7 +234,7 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		{ "ModuleRelativePath", "GameStateButtonBase.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameStateButtonBase, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(GameStateButtonBase_eventOnOverlapBegin_Parms), Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameStateButtonBase, nullptr, "OnOverlapBegin", nullptr, nullptr, sizeof(GameStateButtonBase_eventOnOverlapBegin_Parms), Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -294,7 +294,7 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		{ "ModuleRelativePath", "GameStateButtonBase.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameStateButtonBase, nullptr, "OnOverlapEnd", nullptr, nullptr, sizeof(GameStateButtonBase_eventOnOverlapEnd_Parms), Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameStateButtonBase, nullptr, "OnOverlapEnd", nullptr, nullptr, sizeof(GameStateButtonBase_eventOnOverlapEnd_Parms), Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020400, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -356,9 +356,9 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Monochrome,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGameStateButtonBase_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AGameStateButtonBase_OnHit, "OnHit" }, // 3058887750
-		{ &Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin, "OnOverlapBegin" }, // 2040935008
-		{ &Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd, "OnOverlapEnd" }, // 3026461494
+		{ &Z_Construct_UFunction_AGameStateButtonBase_OnHit, "OnHit" }, // 579643539
+		{ &Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin, "OnOverlapBegin" }, // 1925418168
+		{ &Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd, "OnOverlapEnd" }, // 1844213383
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::Class_MetaDataParams[] = {
@@ -462,7 +462,7 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGameStateButtonBase, 2118541650);
+	IMPLEMENT_CLASS(AGameStateButtonBase, 95950040);
 	template<> MONOCHROME_API UClass* StaticClass<AGameStateButtonBase>()
 	{
 		return AGameStateButtonBase::StaticClass();

@@ -79,9 +79,21 @@
     <ClInclude Include="..\..\Source\Monochrome\GameStateButtonBase.h">
       <Filter>Source\Monochrome</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Monochrome\VanishGameStateButton.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Monochrome\CheckpointActor.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Monochrome\GameStateButtonBase.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Monochrome\VanishGameStateButton.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Monochrome\CheckpointActor.cpp">
       <Filter>Source\Monochrome</Filter>
     </ClCompile>
   </ItemGroup>

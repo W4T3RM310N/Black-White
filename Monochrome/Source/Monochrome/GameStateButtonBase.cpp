@@ -58,6 +58,28 @@ void AGameStateButtonBase::BeginPlay()
 void AGameStateButtonBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (!bIsVanishingButton)
+	{
+		UWorld* World = GetWorld();
+		if (World)
+		{
+			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+			if ((int)OurGameState->GetGameColorState() != (int)m_CurrentButtonColorState)
+			{
+				if (m_CurrentButtonColorState == ButtonBlack)
+				{
+					m_CurrentButtonColorState = ButtonWhite;
+					m_SpriteComponent->SetSprite(m_WhiteButtonSprite);
+				}
+				else if (m_CurrentButtonColorState == ButtonWhite)
+				{
+					m_CurrentButtonColorState = ButtonBlack;
+					m_SpriteComponent->SetSprite(m_BlackButtonSprite);
+				}
+			}
+		}
+	}
 }
 
 void AGameStateButtonBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

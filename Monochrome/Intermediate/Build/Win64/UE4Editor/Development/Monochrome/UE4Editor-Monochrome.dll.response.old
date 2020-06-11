@@ -34,6 +34,7 @@
 /FUNCTIONPADMIN
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\MonochromeEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\BlockActor.cpp.obj"
+"D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\GameStateButtonBase.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MainMenuHUD.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Monochrome.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MonochromeGameModeBase.cpp.obj"
@@ -41,6 +42,7 @@
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MonochromeMenuMode.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\PlayerPawn.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\BlockActor.gen.cpp.obj"
+"D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\GameStateButtonBase.gen.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MainMenuHUD.gen.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Monochrome.init.gen.cpp.obj"
 "D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\MonochromeGameModeBase.gen.cpp.obj"
@@ -76,6 +78,7 @@
 "D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
 "D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\CoreUObject\UE4Editor-CoreUObject.lib"
 "D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Development\InputCore\UE4Editor-InputCore.lib"
+"D:\Program Files (x86)\UE_4.24\Engine\Plugins\2D\Paper2D\Intermediate\Build\Win64\UE4Editor\Development\Paper2D\UE4Editor-Paper2D.lib"
 /OUT:"D:\adale\Desktop\Black-White\Monochrome\Binaries\Win64\UE4Editor-Monochrome.dll"
 /IMPLIB:"D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\UE4Editor-Monochrome.suppressed.lib"
 /PDB:"D:\adale\Desktop\Black-White\Monochrome\Binaries\Win64\UE4Editor-Monochrome.pdb"

@@ -6,6 +6,13 @@
 #include "GameFramework/Actor.h"
 #include "GameStateButtonBase.generated.h"
 
+UENUM()
+enum ButtonColorState
+{
+	ButtonBlack = 0,
+	ButtonWhite
+};
+
 UCLASS()
 class MONOCHROME_API AGameStateButtonBase : public AActor
 {
@@ -44,4 +51,19 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Button")
 		class UBoxComponent* m_TriggerComponent; 
+
+	UPROPERTY(EditAnywhere, Category = "Button")
+		class UPaperSprite* m_BlackButtonPressedSprite; 
+
+	UPROPERTY(EditAnywhere, Category = "Button")
+		class UPaperSprite* m_WhiteButtonPressedSprite;
+
+	UPROPERTY(EditAnywhere, Category = "Button")
+		class UPaperSprite* m_BlackButtonSprite;
+
+	UPROPERTY(EditAnywhere, Category = "Button")
+		class UPaperSprite* m_WhiteButtonSprite;
+
+	UPROPERTY(EditAnywhere, Category = "Button")
+		TEnumAsByte<ButtonColorState> m_CurrentButtonColorState; 
 };

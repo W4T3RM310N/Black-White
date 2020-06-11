@@ -1,0 +1,2 @@
+D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\DebugGame\Monochrome\Definitions.Monochrome.h
+D:\adale\Desktop\Black-White\Monochrome\Source\Monochrome\Monochrome.h

@@ -17,8 +17,8 @@ struct FVector;
 #endif
 #define MONOCHROME_GameStateButtonBase_generated_h
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_SPARSE_DATA
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_RPC_WRAPPERS \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_SPARSE_DATA
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
@@ -60,7 +60,7 @@ struct FVector;
 	}
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnOverlapEnd) \
 	{ \
@@ -102,7 +102,7 @@ struct FVector;
 	}
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_INCLASS_NO_PURE_DECLS \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGameStateButtonBase(); \
 	friend struct Z_Construct_UClass_AGameStateButtonBase_Statics; \
@@ -111,7 +111,7 @@ public: \
 	DECLARE_SERIALIZER(AGameStateButtonBase)
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_INCLASS \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_INCLASS \
 private: \
 	static void StaticRegisterNativesAGameStateButtonBase(); \
 	friend struct Z_Construct_UClass_AGameStateButtonBase_Statics; \
@@ -120,7 +120,7 @@ public: \
 	DECLARE_SERIALIZER(AGameStateButtonBase)
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_STANDARD_CONSTRUCTORS \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AGameStateButtonBase(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AGameStateButtonBase) \
@@ -133,7 +133,7 @@ private: \
 public:
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_ENHANCED_CONSTRUCTORS \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AGameStateButtonBase(AGameStateButtonBase&&); \
@@ -144,33 +144,38 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGameStateButtonBase); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AGameStateButtonBase)
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_PRIVATE_PROPERTY_OFFSET \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__m_SpriteComponent() { return STRUCT_OFFSET(AGameStateButtonBase, m_SpriteComponent); } \
 	FORCEINLINE static uint32 __PPO__m_BoxComponent() { return STRUCT_OFFSET(AGameStateButtonBase, m_BoxComponent); } \
-	FORCEINLINE static uint32 __PPO__m_TriggerComponent() { return STRUCT_OFFSET(AGameStateButtonBase, m_TriggerComponent); }
+	FORCEINLINE static uint32 __PPO__m_TriggerComponent() { return STRUCT_OFFSET(AGameStateButtonBase, m_TriggerComponent); } \
+	FORCEINLINE static uint32 __PPO__m_BlackButtonPressedSprite() { return STRUCT_OFFSET(AGameStateButtonBase, m_BlackButtonPressedSprite); } \
+	FORCEINLINE static uint32 __PPO__m_WhiteButtonPressedSprite() { return STRUCT_OFFSET(AGameStateButtonBase, m_WhiteButtonPressedSprite); } \
+	FORCEINLINE static uint32 __PPO__m_BlackButtonSprite() { return STRUCT_OFFSET(AGameStateButtonBase, m_BlackButtonSprite); } \
+	FORCEINLINE static uint32 __PPO__m_WhiteButtonSprite() { return STRUCT_OFFSET(AGameStateButtonBase, m_WhiteButtonSprite); } \
+	FORCEINLINE static uint32 __PPO__m_CurrentButtonColorState() { return STRUCT_OFFSET(AGameStateButtonBase, m_CurrentButtonColorState); }
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_9_PROLOG
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_GENERATED_BODY_LEGACY \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_16_PROLOG
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_PRIVATE_PROPERTY_OFFSET \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_SPARSE_DATA \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_RPC_WRAPPERS \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_INCLASS \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_STANDARD_CONSTRUCTORS \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_PRIVATE_PROPERTY_OFFSET \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_SPARSE_DATA \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_RPC_WRAPPERS \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_INCLASS \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define Monochrome_Source_Monochrome_GameStateButtonBase_h_12_GENERATED_BODY \
+#define Monochrome_Source_Monochrome_GameStateButtonBase_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_PRIVATE_PROPERTY_OFFSET \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_SPARSE_DATA \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_INCLASS_NO_PURE_DECLS \
-	Monochrome_Source_Monochrome_GameStateButtonBase_h_12_ENHANCED_CONSTRUCTORS \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_PRIVATE_PROPERTY_OFFSET \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_SPARSE_DATA \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_INCLASS_NO_PURE_DECLS \
+	Monochrome_Source_Monochrome_GameStateButtonBase_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -181,4 +186,7 @@ template<> MONOCHROME_API UClass* StaticClass<class AGameStateButtonBase>();
 #define CURRENT_FILE_ID Monochrome_Source_Monochrome_GameStateButtonBase_h
 
 
+#define FOREACH_ENUM_BUTTONCOLORSTATE(op) \
+	op(ButtonBlack) \
+	op(ButtonWhite) 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

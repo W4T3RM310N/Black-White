@@ -13,10 +13,11 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 // Cross Module References
+	MONOCHROME_API UEnum* Z_Construct_UEnum_Monochrome_ButtonColorState();
+	UPackage* Z_Construct_UPackage__Script_Monochrome();
 	MONOCHROME_API UClass* Z_Construct_UClass_AGameStateButtonBase_NoRegister();
 	MONOCHROME_API UClass* Z_Construct_UClass_AGameStateButtonBase();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	UPackage* Z_Construct_UPackage__Script_Monochrome();
 	MONOCHROME_API UFunction* Z_Construct_UFunction_AGameStateButtonBase_OnHit();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
@@ -24,9 +25,62 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	MONOCHROME_API UFunction* Z_Construct_UFunction_AGameStateButtonBase_OnOverlapBegin();
 	MONOCHROME_API UFunction* Z_Construct_UFunction_AGameStateButtonBase_OnOverlapEnd();
+	PAPER2D_API UClass* Z_Construct_UClass_UPaperSprite_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	PAPER2D_API UClass* Z_Construct_UClass_UPaperSpriteComponent_NoRegister();
 // End Cross Module References
+	static UEnum* ButtonColorState_StaticEnum()
+	{
+		static UEnum* Singleton = nullptr;
+		if (!Singleton)
+		{
+			Singleton = GetStaticEnum(Z_Construct_UEnum_Monochrome_ButtonColorState, Z_Construct_UPackage__Script_Monochrome(), TEXT("ButtonColorState"));
+		}
+		return Singleton;
+	}
+	template<> MONOCHROME_API UEnum* StaticEnum<ButtonColorState>()
+	{
+		return ButtonColorState_StaticEnum();
+	}
+	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_ButtonColorState(ButtonColorState_StaticEnum, TEXT("/Script/Monochrome"), TEXT("ButtonColorState"), false, nullptr, nullptr);
+	uint32 Get_Z_Construct_UEnum_Monochrome_ButtonColorState_Hash() { return 2340132111U; }
+	UEnum* Z_Construct_UEnum_Monochrome_ButtonColorState()
+	{
+#if WITH_HOT_RELOAD
+		UPackage* Outer = Z_Construct_UPackage__Script_Monochrome();
+		static UEnum* ReturnEnum = FindExistingEnumIfHotReloadOrDynamic(Outer, TEXT("ButtonColorState"), 0, Get_Z_Construct_UEnum_Monochrome_ButtonColorState_Hash(), false);
+#else
+		static UEnum* ReturnEnum = nullptr;
+#endif // WITH_HOT_RELOAD
+		if (!ReturnEnum)
+		{
+			static const UE4CodeGen_Private::FEnumeratorParam Enumerators[] = {
+				{ "ButtonBlack", (int64)ButtonBlack },
+				{ "ButtonWhite", (int64)ButtonWhite },
+			};
+#if WITH_METADATA
+			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+				{ "ButtonBlack.Name", "ButtonBlack" },
+				{ "ButtonWhite.Name", "ButtonWhite" },
+				{ "ModuleRelativePath", "GameStateButtonBase.h" },
+			};
+#endif
+			static const UE4CodeGen_Private::FEnumParams EnumParams = {
+				(UObject*(*)())Z_Construct_UPackage__Script_Monochrome,
+				nullptr,
+				"ButtonColorState",
+				"ButtonColorState",
+				Enumerators,
+				UE_ARRAY_COUNT(Enumerators),
+				RF_Public|RF_Transient|RF_MarkAsNative,
+				UE4CodeGen_Private::EDynamicType::NotDynamic,
+				(uint8)UEnum::ECppForm::Regular,
+				METADATA_PARAMS(Enum_MetaDataParams, UE_ARRAY_COUNT(Enum_MetaDataParams))
+			};
+			UE4CodeGen_Private::ConstructUEnum(ReturnEnum, EnumParams);
+		}
+		return ReturnEnum;
+	}
 	void AGameStateButtonBase::StaticRegisterNativesAGameStateButtonBase()
 	{
 		UClass* Class = AGameStateButtonBase::StaticClass();
@@ -262,6 +316,26 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_CurrentButtonColorState_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_m_CurrentButtonColorState;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_WhiteButtonSprite_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_WhiteButtonSprite;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BlackButtonSprite_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BlackButtonSprite;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_WhiteButtonPressedSprite_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_WhiteButtonPressedSprite;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_BlackButtonPressedSprite_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_BlackButtonPressedSprite;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_m_TriggerComponent_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_m_TriggerComponent;
@@ -293,6 +367,41 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_CurrentButtonColorState_MetaData[] = {
+		{ "Category", "Button" },
+		{ "ModuleRelativePath", "GameStateButtonBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_CurrentButtonColorState = { "m_CurrentButtonColorState", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGameStateButtonBase, m_CurrentButtonColorState), Z_Construct_UEnum_Monochrome_ButtonColorState, METADATA_PARAMS(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_CurrentButtonColorState_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_CurrentButtonColorState_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonSprite_MetaData[] = {
+		{ "Category", "Button" },
+		{ "ModuleRelativePath", "GameStateButtonBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonSprite = { "m_WhiteButtonSprite", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGameStateButtonBase, m_WhiteButtonSprite), Z_Construct_UClass_UPaperSprite_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonSprite_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonSprite_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonSprite_MetaData[] = {
+		{ "Category", "Button" },
+		{ "ModuleRelativePath", "GameStateButtonBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonSprite = { "m_BlackButtonSprite", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGameStateButtonBase, m_BlackButtonSprite), Z_Construct_UClass_UPaperSprite_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonSprite_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonSprite_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonPressedSprite_MetaData[] = {
+		{ "Category", "Button" },
+		{ "ModuleRelativePath", "GameStateButtonBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonPressedSprite = { "m_WhiteButtonPressedSprite", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGameStateButtonBase, m_WhiteButtonPressedSprite), Z_Construct_UClass_UPaperSprite_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonPressedSprite_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonPressedSprite_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonPressedSprite_MetaData[] = {
+		{ "Category", "Button" },
+		{ "ModuleRelativePath", "GameStateButtonBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonPressedSprite = { "m_BlackButtonPressedSprite", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGameStateButtonBase, m_BlackButtonPressedSprite), Z_Construct_UClass_UPaperSprite_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonPressedSprite_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonPressedSprite_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_TriggerComponent_MetaData[] = {
 		{ "Category", "Button" },
 		{ "EditInline", "true" },
@@ -317,6 +426,11 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_SpriteComponent = { "m_SpriteComponent", nullptr, (EPropertyFlags)0x0020080000080009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AGameStateButtonBase, m_SpriteComponent), Z_Construct_UClass_UPaperSpriteComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_SpriteComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_SpriteComponent_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameStateButtonBase_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_CurrentButtonColorState,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonSprite,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonSprite,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_WhiteButtonPressedSprite,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BlackButtonPressedSprite,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_TriggerComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_BoxComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameStateButtonBase_Statics::NewProp_m_SpriteComponent,
@@ -348,7 +462,7 @@ void EmptyLinkFunctionForGeneratedCodeGameStateButtonBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AGameStateButtonBase, 3709721839);
+	IMPLEMENT_CLASS(AGameStateButtonBase, 2118541650);
 	template<> MONOCHROME_API UClass* StaticClass<AGameStateButtonBase>()
 	{
 		return AGameStateButtonBase::StaticClass();

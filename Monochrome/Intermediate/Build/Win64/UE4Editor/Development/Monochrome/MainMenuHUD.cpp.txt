@@ -1,8 +1,0 @@
-C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Definitions.Monochrome.h
-C:\Users\Ben\Desktop\Black-White\Monochrome\Source\Monochrome\MainMenuHUD.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
-C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Inc\Monochrome\MainMenuHUD.generated.h

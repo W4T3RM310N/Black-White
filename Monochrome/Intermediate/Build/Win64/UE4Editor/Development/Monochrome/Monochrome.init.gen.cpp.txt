@@ -1,3 +1,0 @@
-C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Definitions.Monochrome.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h

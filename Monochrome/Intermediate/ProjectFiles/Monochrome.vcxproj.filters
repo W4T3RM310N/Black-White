@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Monochrome.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{2E1738D4-6AFA-46F8-B7AD-267398FE6D61}</UniqueIdentifier>
+      <UniqueIdentifier>{7CD56930-A735-4824-8F84-25C8875FBFB5}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Monochrome.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{E8B5645A-D763-4E56-9E9F-44E14EFF7F7C}</UniqueIdentifier>
+      <UniqueIdentifier>{A269F1F8-73A5-4E90-AFEA-FF7A1D2BFDFF}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Monochrome">
-      <UniqueIdentifier>{0157B8F7-8D64-4307-86DC-6B63371B09D9}</UniqueIdentifier>
+      <UniqueIdentifier>{71394B62-7BC2-42A5-AF8C-51AD6B1A4FBC}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Monochrome\BlockActor.cpp">
       <Filter>Source\Monochrome</Filter>
@@ -104,5 +104,15 @@
     <ClInclude Include="..\..\Source\Monochrome\VanishGameStateButton.h">
       <Filter>Source\Monochrome</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\Monochrome\PlayerCharacter.h">
+      <Filter>Source\Monochrome</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\Monochrome\PlayerCharacter.cpp">
+      <Filter>Source\Monochrome</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

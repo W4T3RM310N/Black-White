@@ -2,7 +2,7 @@
 
 
 #include "VanishGameStateButton.h"
-#include "Monochrome/PlayerPawn.h"
+#include "Monochrome/PlayerCharacter.h"
 #include "Monochrome/MonochromeGameStateBase.h"
 #include "PaperSpriteComponent.h"
 #include "PaperSprite.h"
@@ -39,7 +39,7 @@ void AVanishGameStateButton::OnHit(UPrimitiveComponent* HitComp, AActor* OtherAc
 {
 	//if (bCanBePressed)
 	//{
-	//	if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
+	//	if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
 	//	{
 	//		//Really annoying that I had to check each axis but wasn't working properly otherwise. 
 	//		if (NormalImpulse.Z > 0.0f && NormalImpulse.X == 0.0f && NormalImpulse.Y == 0.0f)
@@ -74,7 +74,7 @@ void AVanishGameStateButton::OnOverlapBegin(UPrimitiveComponent* OverlappedComp,
 {
 	if (bCanBePressed)
 	{
-		if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
+		if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
 		{
 			SetActorEnableCollision(false);
 			SetActorHiddenInGame(true);

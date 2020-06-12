@@ -1,23 +1,23 @@
-D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Definitions.Monochrome.h
-D:\adale\Desktop\Black-White\Monochrome\Source\Monochrome\PlayerPawn.h
-D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Inc\Monochrome\PlayerPawn.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\Components/CapsuleComponent.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Plugins\2D\Paper2D\Source\Paper2D\Classes\PaperSpriteComponent.h
-D:\Program Files (x86)\UE_4.24\Engine\Plugins\2D\Paper2D\Intermediate\Build\Win64\UE4Editor\Inc\Paper2D\PaperSpriteComponent.generated.h
-D:\adale\Desktop\Black-White\Monochrome\Source\Monochrome/MonochromeGameStateBase.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/GameStateBase.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-D:\Program Files (x86)\UE_4.24\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-D:\Program Files (x86)\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameStateBase.generated.h
-D:\adale\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Inc\Monochrome\MonochromeGameStateBase.generated.h
+C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Development\Monochrome\Definitions.Monochrome.h
+C:\Users\Ben\Desktop\Black-White\Monochrome\Source\Monochrome\PlayerPawn.h
+C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Inc\Monochrome\PlayerPawn.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\BoxComponent.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Components/CapsuleComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CapsuleComponent.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Plugins\2D\Paper2D\Source\Paper2D\Classes\PaperSpriteComponent.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Plugins\2D\Paper2D\Intermediate\Build\Win64\UE4Editor\Inc\Paper2D\PaperSpriteComponent.generated.h
+C:\Users\Ben\Desktop\Black-White\Monochrome\Source\Monochrome/MonochromeGameStateBase.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/GameStateBase.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameStateBase.generated.h
+C:\Users\Ben\Desktop\Black-White\Monochrome\Intermediate\Build\Win64\UE4Editor\Inc\Monochrome\MonochromeGameStateBase.generated.h

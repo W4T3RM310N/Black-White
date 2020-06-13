@@ -6,7 +6,7 @@
 #include "PaperSprite.h"
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
-#include "Monochrome/PlayerPawn.h"
+#include "Monochrome/PlayerCharacter.h"
 
 // Sets default values
 ACheckpointActor::ACheckpointActor()
@@ -46,7 +46,7 @@ void ACheckpointActor::Tick(float DeltaTime)
 
 void ACheckpointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (APlayerPawn* pPlayer = Cast<APlayerPawn>(OtherActor))
+	if (APlayerCharacter* pPlayer = Cast<APlayerCharacter>(OtherActor))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Green, TEXT("Player reached a checkpoint."));
 		m_SpriteComponent->SetSprite(m_ActiveCPSprite);

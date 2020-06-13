@@ -5,7 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "PaperSpriteComponent.h"
 #include "PaperSprite.h"
-#include "Monochrome/PlayerPawn.h"
+#include "Monochrome/PlayerCharacter.h"
 #include "Monochrome/MonochromeGameStateBase.h"
 
 // Sets default values
@@ -86,7 +86,7 @@ void AGameStateButtonBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActo
 {
 	//if (bCanBePressed)
 	//{
-	//	if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
+	//	if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
 	//	{
 	//		//Really annoying that I had to check each axis but wasn't working properly otherwise. 
 	//		if (NormalImpulse.Z > 0.0f && NormalImpulse.X == 0.0f && NormalImpulse.Y == 0.0f)
@@ -127,7 +127,7 @@ void AGameStateButtonBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, A
 {
 	if (bCanBePressed)
 	{
-		if (APlayerPawn* pPlayerPawn = Cast<APlayerPawn>(OtherActor))
+		if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
 			bCanBePressed = false;

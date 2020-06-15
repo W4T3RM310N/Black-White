@@ -17,6 +17,7 @@ ABlockActor::ABlockActor()
 	m_BoxComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	m_BoxComponent->SetCollisionProfileName("BlockAllDynamic");
 	m_BoxComponent->SetNotifyRigidBodyCollision(true);
+	m_BoxComponent->GetBodyInstance()->bLockYTranslation = true; 
 	RootComponent = m_BoxComponent;
 
 	m_SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("SpriteComponent"));

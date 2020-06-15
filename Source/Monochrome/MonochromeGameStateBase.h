@@ -31,4 +31,16 @@ public:
 
 	void SetGameColorState(GameColorState newColorState);
 	GameColorState GetGameColorState();
+
+	void SetGameColorStateAtCheckpoint(); 
+
+	void RevertToCheckpointColorState(); 
+
+	void ResetLevelToLastCheckpoint(); 
+
+	void ResetAI(); 
+
+protected:
+
+	GameColorState m_GameColorStateAtCheckpoint; 
 };

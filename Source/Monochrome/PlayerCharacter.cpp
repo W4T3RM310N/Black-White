@@ -72,6 +72,7 @@ void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	m_RespawnPosition = GetActorLocation();
+	 
 }
 
 void APlayerCharacter::MoveRight(float Value)

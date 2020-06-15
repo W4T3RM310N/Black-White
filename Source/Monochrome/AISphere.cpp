@@ -28,6 +28,14 @@ AAISphere::AAISphere()
 	m_DetectionSphere->OnComponentEndOverlap.AddDynamic(this, &AAISphere::OnOverlapEnd);
 	RootComponent = m_DetectionSphere;
 
+	m_CollisionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionSphere"));
+	m_CollisionSphere->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics); 
+	m_CollisionSphere->SetCollisionProfileName("OverlapAllDynamic"); 
+	m_CollisionSphere->SetGenerateOverlapEvents(true); 
+	m_CollisionSphere->ComponentTags.Add(TEXT("KillSphere")); 
+	m_CollisionSphere->OnComponentBeginOverlap.AddDynamic(this, &AAISphere::OnOverlapBegin); 
+	m_CollisionSphere->SetupAttachment(RootComponent); 
+
 	m_SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>("SpriteComponent");
 	m_SpriteComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	m_SpriteComponent->SetCollisionProfileName("OverlapOnlyPawn");
@@ -45,24 +53,27 @@ void AAISphere::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UWorld* World = GetWorld();
-	if (World)
+	m_StartPosition = GetActorLocation(); 
+
+	if (!bIsVanishingAI)
 	{
-		AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-		if (OurGameState)
+		UWorld* World = GetWorld();
+		if (World)
 		{
-			if (OurGameState->GetGameColorState() == GameStateBlack)
+			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+			if (OurGameState)
 			{
-				m_SpriteComponent->SetSprite(m_BlackSprite);
-				bIsWhite = false;
-				bIsBlack = true;
+				if (OurGameState->GetGameColorState() == GameStateBlack)
+				{
+					m_SpriteComponent->SetSprite(m_BlackSprite);
+					m_ColorState = AIBlack; 
 				
-			}
-			else if (OurGameState->GetGameColorState() == GameStateWhite)
-			{
-				m_SpriteComponent->SetSprite(m_WhiteSprite);
-				bIsWhite = true;
-				bIsBlack = false;
+				}
+				else if (OurGameState->GetGameColorState() == GameStateWhite)
+				{
+					m_SpriteComponent->SetSprite(m_WhiteSprite);
+					m_ColorState = AIWhite; 
+				}
 			}
 		}
 	}
@@ -73,13 +84,15 @@ void AAISphere::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	UWorld * World = GetWorld();
-	if (World)
+	if (!bIsVanishingAI)
 	{
-		AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+		UWorld* World = GetWorld();
+		if (World)
+		{
+			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
 			if (OurGameState)
 			{
-				if(bIsWhite)
+				if (m_ColorState == AIWhite)
 				{
 					if (OurGameState->GetGameColorState() == GameStateBlack)
 					{
@@ -91,11 +104,10 @@ void AAISphere::Tick(float DeltaTime)
 						{
 							m_SpriteComponent->SetSprite(m_BlackSprite);
 						}
-						bIsWhite = false;
-						bIsBlack = true;
+						m_ColorState = AIBlack;
 					}
 				}
-				else if (bIsBlack)
+				else if (m_ColorState == AIBlack)
 				{
 					if (OurGameState->GetGameColorState() == GameStateWhite)
 					{
@@ -107,13 +119,13 @@ void AAISphere::Tick(float DeltaTime)
 						{
 							m_SpriteComponent->SetSprite(m_WhiteSprite);
 						}
-						bIsWhite = true;
-						bIsBlack = false;
+						m_ColorState = AIWhite;
 					}
 				}
 			}
+		}
 	}
-	
+
 	if (bIsFollowing)
 	{
 		FVector tempmove = (m_Player->GetActorLocation() - GetActorLocation()).GetSafeNormal();
@@ -146,6 +158,23 @@ void AAISphere::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* Othe
 			}
 		}		
 	}
+
+	if (OverlappedComp->ComponentHasTag(TEXT("KillSphere")))
+	{
+		if (APlayerCharacter* pPlayer = Cast<APlayerCharacter>(OtherActor))
+		{ 
+			UWorld* World = GetWorld(); 
+			if (World)
+			{
+				AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+
+				if (OurGameState)
+				{
+					OurGameState->ResetLevelToLastCheckpoint(); 
+				}
+			}
+		}
+	}
 }
 
 void AAISphere::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
@@ -171,5 +200,10 @@ void AAISphere::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 			}
 		}
 	}
+}
+
+void AAISphere::ResetAISphere()
+{
+	SetActorLocation(m_StartPosition); 
 }
 

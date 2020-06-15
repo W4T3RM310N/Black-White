@@ -6,6 +6,13 @@
 #include "GameFramework/Actor.h"
 #include "AISphere.generated.h"
 
+UENUM()
+enum AIColorState
+{
+	AIBlack = 0, 
+	AIWhite,
+};
+
 UCLASS()
 class MONOCHROME_API AAISphere : public AActor
 {
@@ -29,6 +36,8 @@ public:
 	UFUNCTION()
 		virtual void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
+	void ResetAISphere(); 
+
 protected:
 
 	UPROPERTY(EditAnywhere, Category = "Sprite")
@@ -46,14 +55,11 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Sprite")
 		UPaperSprite* m_BlackAlertSprite;
 
-	UPROPERTY(EditAnywhere, Category = "Sprite")
-		bool bIsBlack = false;
-
-	UPROPERTY(EditAnywhere, Category = "Sprite")
-		bool bIsWhite = false;
-
 	UPROPERTY(EditAnywhere, Category = "Collision")
 		class USphereComponent* m_DetectionSphere;
+
+	UPROPERTY(EditAnywhere, Category = "Collision")
+		USphereComponent* m_CollisionSphere; 
 
 	UPROPERTY(EditAnywhere, Category = "Tracking")
 		float m_FollowSpeed = 200;
@@ -63,4 +69,12 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Tracking")
 		class AActor* m_Player = nullptr;
+
+	UPROPERTY(VisibleAnywhere, Category = "AIInfo")
+		FVector m_StartPosition = FVector::ZeroVector; 
+
+	bool bIsVanishingAI = false;
+
+	UPROPERTY(EditAnywhere, Category = "AIInfo")
+		TEnumAsByte<AIColorState> m_ColorState; 
 };

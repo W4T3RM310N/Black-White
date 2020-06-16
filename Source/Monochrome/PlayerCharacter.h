@@ -52,6 +52,8 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 	// End of APawn interface
 
+
+public:	
 	UPROPERTY(EditAnywhere, Category = "Player")
 	int m_jumpCount;
 
@@ -60,8 +62,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Player")
 	int m_AllowedJumps;
-
-public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

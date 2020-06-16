@@ -11,4 +11,5 @@ APhysicsGameStateButtonBase::APhysicsGameStateButtonBase()
 	m_BoxComponent->GetBodyInstance()->bLockYRotation = true; 
 	m_BoxComponent->GetBodyInstance()->bLockXRotation = true; 
 	m_BoxComponent->GetBodyInstance()->bLockZRotation = true; 
+	m_BoxComponent->GetBodyInstance()->bLockYTranslation = true;
 }

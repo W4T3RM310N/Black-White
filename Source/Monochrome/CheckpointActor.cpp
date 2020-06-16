@@ -7,6 +7,7 @@
 #include "Components/BoxComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Monochrome/PlayerCharacter.h"
+#include "Monochrome/MonochromeGameStateBase.h"
 
 // Sets default values
 ACheckpointActor::ACheckpointActor()
@@ -56,6 +57,16 @@ void ACheckpointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 		}
 		pPlayer->SetCheckpoint(this); 
 		pPlayer->SetRespawnPosition(GetActorLocation());
+
+		UWorld* World = GetWorld(); 
+		if (World)
+		{
+			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+			if (OurGameState)
+			{
+				OurGameState->SetGameColorStateAtCheckpoint(); 
+			}
+		}
 	}
 }
 

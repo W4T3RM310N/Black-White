@@ -6,6 +6,14 @@
 #include "GameFramework/Actor.h"
 #include "CheckpointActor.generated.h"
 
+UENUM()
+enum CheckpointColor
+{
+	CheckpointColorBlack = 0,
+	CheckpointColorWhite,
+	CheckpointColorNeutral
+};
+
 UCLASS()
 class MONOCHROME_API ACheckpointActor : public AActor
 {
@@ -28,17 +36,31 @@ public:
 
 	void DeactivateCheckpoint(); 
 
+	CheckpointColor GetCheckpointColor();
+
 protected:
+
+	UPROPERTY(EditAnywhere, Category = "Checkpoint")
+		TEnumAsByte<CheckpointColor> m_CheckpointColor;
 
 	UPROPERTY(EditAnywhere, Category = "Checkpoint")
 		class UPaperSpriteComponent* m_SpriteComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Checkpoint")
-		class UPaperSprite* m_ActiveCPSprite; 
+		class UPaperSprite* m_ActiveCPSpriteBlack; 
 
 	UPROPERTY(EditAnywhere, Category = "Checkpoint")
-		class UPaperSprite* m_InactiveCPSprite; 
+		class UPaperSprite* m_InactiveCPSpriteBlack; 
+
+	UPROPERTY(EditAnywhere, Category = "Checkpoint")
+		class UPaperSprite* m_ActiveCPSpriteWhite;
+
+	UPROPERTY(EditAnywhere, Category = "Checkpoint")
+		class UPaperSprite* m_InactiveCPSpriteWhite;
 
 	UPROPERTY(EditAnywhere, Category = "Checkpoint")
 		class UBoxComponent* m_TriggerComponent; 
+
+	UPROPERTY(EditAnywhere, Category = "Checkpoint")
+		bool bIsActive = false;
 };

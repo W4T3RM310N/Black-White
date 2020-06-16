@@ -27,22 +27,65 @@ ACheckpointActor::ACheckpointActor()
 	m_SpriteComponent->SetCollisionProfileName("NoCollision"); 
 	m_SpriteComponent->SetupAttachment(RootComponent); 
 
-	m_ActiveCPSprite = CreateDefaultSubobject<UPaperSprite>(TEXT("ActiveCP")); 
-	m_InactiveCPSprite = CreateDefaultSubobject<UPaperSprite>(TEXT("InactiveCP")); 
+	m_ActiveCPSpriteBlack = CreateDefaultSubobject<UPaperSprite>(TEXT("ActiveCPBlack")); 
+	m_InactiveCPSpriteBlack = CreateDefaultSubobject<UPaperSprite>(TEXT("InactiveCPBlack")); 
+	m_ActiveCPSpriteWhite = CreateDefaultSubobject<UPaperSprite>(TEXT("ActiveCPWhite"));
+	m_InactiveCPSpriteWhite = CreateDefaultSubobject<UPaperSprite>(TEXT("InactiveCPWhite"));
 }
 
 // Called when the game starts or when spawned
 void ACheckpointActor::BeginPlay()
 {
 	Super::BeginPlay();
-	m_SpriteComponent->SetSprite(m_InactiveCPSprite); 
+	if (m_CheckpointColor == CheckpointColorBlack)
+	{
+		m_SpriteComponent->SetSprite(m_InactiveCPSpriteBlack);
+	}
+	else if (m_CheckpointColor == CheckpointColorWhite)
+	{
+		m_SpriteComponent->SetSprite(m_InactiveCPSpriteWhite);
+	}
 }
 
 // Called every frame
 void ACheckpointActor::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
+	Super::Tick(DeltaTime); 
 
+	UWorld* World = GetWorld();
+	if (World)
+	{
+		AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+		if ((int)OurGameState->GetGameColorState() != (int)m_CheckpointColor)
+		{
+			if (!bIsActive)
+			{
+				if (m_CheckpointColor == CheckpointColorBlack)
+				{
+					m_CheckpointColor = CheckpointColorWhite;
+					m_SpriteComponent->SetSprite(m_InactiveCPSpriteWhite);
+				}
+				else if (m_CheckpointColor == CheckpointColorWhite)
+				{
+					m_CheckpointColor = CheckpointColorBlack;
+					m_SpriteComponent->SetSprite(m_InactiveCPSpriteBlack);
+				}
+			}
+			else if (bIsActive)
+			{
+				if (m_CheckpointColor == CheckpointColorBlack)
+				{
+					m_CheckpointColor = CheckpointColorWhite;
+					m_SpriteComponent->SetSprite(m_ActiveCPSpriteWhite);
+				}
+				else if (m_CheckpointColor == CheckpointColorWhite)
+				{
+					m_CheckpointColor = CheckpointColorBlack;
+					m_SpriteComponent->SetSprite(m_ActiveCPSpriteBlack);
+				}
+			}
+		}
+	}
 }
 
 void ACheckpointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -50,7 +93,17 @@ void ACheckpointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 	if (APlayerCharacter* pPlayer = Cast<APlayerCharacter>(OtherActor))
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Green, TEXT("Player reached a checkpoint."));
-		m_SpriteComponent->SetSprite(m_ActiveCPSprite);
+		if (m_CheckpointColor == CheckpointColorBlack)
+		{
+			m_CheckpointColor = CheckpointColorWhite;
+			m_SpriteComponent->SetSprite(m_ActiveCPSpriteWhite);
+		}
+		else if (m_CheckpointColor == CheckpointColorWhite)
+		{
+			m_CheckpointColor = CheckpointColorBlack;
+			m_SpriteComponent->SetSprite(m_ActiveCPSpriteBlack);
+		}
+		bIsActive = true;
 		if (pPlayer->GetCheckpoint() != nullptr && pPlayer->GetCheckpoint() != this)
 		{
 			pPlayer->GetCheckpoint()->DeactivateCheckpoint(); 
@@ -72,6 +125,18 @@ void ACheckpointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActo
 
 void ACheckpointActor::DeactivateCheckpoint()
 {
-	m_SpriteComponent->SetSprite(m_InactiveCPSprite); 
+	if (m_CheckpointColor == CheckpointColorBlack)
+	{
+		m_SpriteComponent->SetSprite(m_InactiveCPSpriteBlack);
+	}
+	else if (m_CheckpointColor == CheckpointColorWhite)
+	{
+		m_SpriteComponent->SetSprite(m_InactiveCPSpriteWhite);
+	}
+}
+
+CheckpointColor ACheckpointActor::GetCheckpointColor()
+{
+	return CheckpointColor();
 }
 

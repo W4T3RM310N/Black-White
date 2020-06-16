@@ -42,11 +42,11 @@ void AVanishingSawActorBase::Tick(float DeltaTime)
 
 			if (OurGameState)
 			{
-				if (OurGameState->GetGameColorState() == m_CurrentColorState)
+				if ((int)OurGameState->GetGameColorState() == (int)m_CurrentColorState)
 				{
 					ActivateSaw(); 
 				}
-				else if (OurGameState->GetGameColorState() != m_CurrentColorState)
+				else if ((int)OurGameState->GetGameColorState() != (int)m_CurrentColorState)
 				{
 					DeactivateSaw(); 
 				}

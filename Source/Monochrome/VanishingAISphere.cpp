@@ -64,6 +64,8 @@ void AVanishingAISphere::BeginPlay()
 
 	Super::BeginPlay(); 
 
+	DeactivateAISphere(); 
+
 	if (m_ColorState == AIBlack)
 	{
 		m_SpriteComponent->SetSprite(m_BlackSprite); 

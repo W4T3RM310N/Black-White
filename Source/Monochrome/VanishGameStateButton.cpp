@@ -35,41 +35,6 @@ void AVanishGameStateButton::Tick(float DeltaTime)
 	}
 }
 
-void AVanishGameStateButton::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
-{
-	//if (bCanBePressed)
-	//{
-	//	if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
-	//	{
-	//		//Really annoying that I had to check each axis but wasn't working properly otherwise. 
-	//		if (NormalImpulse.Z > 0.0f && NormalImpulse.X == 0.0f && NormalImpulse.Y == 0.0f)
-	//		{
-	//			SetActorEnableCollision(false);
-	//			SetActorHiddenInGame(true); 
-
-	//			if (m_CurrentButtonColorState == ButtonBlack)
-	//			{
-	//				UWorld* World = GetWorld();
-	//				if (World)
-	//				{
-	//					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-	//					OurGameState->SetGameColorState(GameStateWhite);
-	//				}
-	//			}
-	//			else if (m_CurrentButtonColorState == ButtonWhite)
-	//			{
-	//				UWorld* World = GetWorld();
-	//				if (World)
-	//				{
-	//					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-	//					OurGameState->SetGameColorState(GameStateBlack);
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
-}
-
 void AVanishGameStateButton::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (bCanBePressed)

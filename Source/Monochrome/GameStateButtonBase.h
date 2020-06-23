@@ -31,9 +31,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
-	virtual void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
-
-	UFUNCTION()
 	virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 	UFUNCTION()
@@ -42,7 +39,6 @@ public:
 protected:
 
 	bool bCanBePressed = true;
-	bool bIsVanishingButton = false; 
 
 	UPROPERTY(EditAnywhere, Category = "Button")
 		class UPaperSpriteComponent* m_SpriteComponent; 
@@ -66,5 +62,8 @@ protected:
 		class UPaperSprite* m_WhiteButtonSprite;
 
 	UPROPERTY(EditAnywhere, Category = "Button")
-		TEnumAsByte<ButtonColorState> m_CurrentButtonColorState; 
+		TEnumAsByte<ButtonColorState> m_CurrentButtonColorState;
+
+	UPROPERTY(EditInstanceOnly, Category = "Button")
+		bool bIsVanishingButton; 
 };

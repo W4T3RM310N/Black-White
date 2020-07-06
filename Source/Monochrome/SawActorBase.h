@@ -33,6 +33,9 @@ public:
 	UFUNCTION()
 		virtual void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
+	void ActivateSaw();
+	void DeactivateSaw();
+
 protected: 
 	UPROPERTY(EditAnywhere, Category = "Saw")
 		class USphereComponent* m_SphereComponent; 
@@ -56,4 +59,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Saw")
 		float m_Rotation = 0.0f;
+
+	UPROPERTY(EditInstanceOnly, Category = "Saw")
+		bool bIsVanishingSaw; 
 };

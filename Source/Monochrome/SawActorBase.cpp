@@ -35,7 +35,7 @@ void ASawActorBase::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	if (!bIsVanishing)
+	if (!bIsVanishingSaw)
 	{
 		UWorld* World = GetWorld();
 		if (World)
@@ -55,6 +55,17 @@ void ASawActorBase::BeginPlay()
 					m_PaperSpriteComponent->SetSprite(m_WhiteSprite);
 				}
 			}
+		}
+	}
+	else if (bIsVanishingSaw)
+	{
+		if (m_CurrentColorState == BlackSaw)
+		{
+			m_PaperSpriteComponent->SetSprite(m_BlackSprite);
+		}
+		else if (m_CurrentColorState == WhiteSaw)
+		{
+			m_PaperSpriteComponent->SetSprite(m_WhiteSprite);
 		}
 	}
 	
@@ -65,14 +76,14 @@ void ASawActorBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!bIsVanishing)
+	UWorld* World = GetWorld();
+	if (World)
 	{
-		UWorld* World = GetWorld();
-		if (World)
-		{
-			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+		AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
 
-			if (OurGameState)
+		if (OurGameState)
+		{
+			if (!bIsVanishingSaw)
 			{
 				if (OurGameState->GetGameColorState() == GameStateBlack)
 				{
@@ -85,9 +96,20 @@ void ASawActorBase::Tick(float DeltaTime)
 					m_PaperSpriteComponent->SetSprite(m_WhiteSprite);
 				}
 			}
+			else if (bIsVanishingSaw)
+			{
+				if ((int)OurGameState->GetGameColorState() == (int)m_CurrentColorState)
+				{
+					ActivateSaw();
+				}
+				else if ((int)OurGameState->GetGameColorState() != (int)m_CurrentColorState)
+				{
+					DeactivateSaw();
+				}
+			}
 		}
 	}
-	
+
 	m_Rotation += DeltaTime * m_RotationSpeed;
 
 	SetActorRotation(FRotator(m_Rotation, 0.0f, 0.0f));
@@ -108,5 +130,17 @@ void ASawActorBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* 
 			}
 		}
 	}
+}
+
+void ASawActorBase::ActivateSaw()
+{
+	SetActorEnableCollision(true);
+	SetActorHiddenInGame(false);
+}
+
+void ASawActorBase::DeactivateSaw()
+{
+	SetActorEnableCollision(false);
+	SetActorHiddenInGame(true);
 }
 

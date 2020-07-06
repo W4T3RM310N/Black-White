@@ -41,7 +41,6 @@ AAISphere::AAISphere()
 	m_SpriteComponent->SetCollisionProfileName("OverlapOnlyPawn");
 	m_SpriteComponent->SetupAttachment(RootComponent);
 
-
 	m_WhiteSprite = CreateDefaultSubobject<UPaperSprite>("WhiteSprite");
 	m_BlackSprite = CreateDefaultSubobject<UPaperSprite>("BlackSprite");
 	m_WhiteAlertSprite = CreateDefaultSubobject<UPaperSprite>("WhiteAlertSprite");
@@ -75,6 +74,19 @@ void AAISphere::BeginPlay()
 					m_ColorState = AIWhite; 
 				}
 			}
+		}
+	}
+	else if (bIsVanishingAI)
+	{
+		DeactivateAISphere(); 
+
+		if (m_ColorState == AIBlack)
+		{
+			m_SpriteComponent->SetSprite(m_BlackSprite);
+		}
+		else if (m_ColorState == AIWhite)
+		{
+			m_SpriteComponent->SetSprite(m_WhiteSprite);
 		}
 	}
 }
@@ -121,6 +133,27 @@ void AAISphere::Tick(float DeltaTime)
 						}
 						m_ColorState = AIWhite;
 					}
+				}
+			}
+		}
+	}
+	else if (bIsVanishingAI)
+	{
+		UWorld* World = GetWorld();
+		if (World)
+		{
+			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+			if (OurGameState)
+			{
+				if ((int)OurGameState->GetGameColorState() == (int)m_ColorState)
+				{
+					if (!bAIIsActive)
+						ActivateAISphere();
+				}
+				else
+				{
+					if (bAIIsActive)
+						DeactivateAISphere();
 				}
 			}
 		}
@@ -187,16 +220,20 @@ void AAISphere::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
 			if (OurGameState)
 			{
-				if (OurGameState->GetGameColorState() == GameStateBlack)
+				if (!bIsVanishingAI)
 				{
-					m_SpriteComponent->SetSprite(m_BlackSprite);
-					bIsFollowing = false;
+					if (OurGameState->GetGameColorState() == GameStateBlack)
+					{
+						m_SpriteComponent->SetSprite(m_BlackSprite);
+						bIsFollowing = false;
+					}
+					else if (OurGameState->GetGameColorState() == GameStateWhite)
+					{
+						m_SpriteComponent->SetSprite(m_WhiteSprite);
+						bIsFollowing = false;
+					}
 				}
-				else if (OurGameState->GetGameColorState() == GameStateWhite)
-				{
-					m_SpriteComponent->SetSprite(m_WhiteSprite);
-					bIsFollowing = false;
-				}
+				
 			}
 		}
 	}
@@ -205,5 +242,35 @@ void AAISphere::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 void AAISphere::ResetAISphere()
 {
 	SetActorLocation(m_StartPosition); 
+}
+
+void AAISphere::DeactivateAISphere()
+{
+	if (bIsVanishingAI)
+	{
+		SetActorEnableCollision(false);
+		SetActorHiddenInGame(true);
+		ResetAISphere();
+		bIsFollowing = false;
+		bAIIsActive = false;
+	}
+}
+
+void AAISphere::ActivateAISphere()
+{
+	if (bIsVanishingAI)
+	{
+		SetActorEnableCollision(true);
+		SetActorHiddenInGame(false);
+		if (m_ColorState == AIBlack)
+		{
+			m_SpriteComponent->SetSprite(m_BlackSprite);
+		}
+		else if (m_ColorState == AIWhite)
+		{
+			m_SpriteComponent->SetSprite(m_WhiteSprite);
+		}
+		bAIIsActive = true;
+	}
 }
 

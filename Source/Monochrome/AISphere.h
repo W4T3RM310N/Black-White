@@ -38,6 +38,9 @@ public:
 
 	void ResetAISphere(); 
 
+	void DeactivateAISphere();
+	void ActivateAISphere();
+
 protected:
 
 	UPROPERTY(EditAnywhere, Category = "Sprite")
@@ -73,8 +76,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "AIInfo")
 		FVector m_StartPosition = FVector::ZeroVector; 
 
-	bool bIsVanishingAI = false;
+	UPROPERTY(EditInstanceOnly, Category = "AIInfo")
+	bool bIsVanishingAI;
 
 	UPROPERTY(EditAnywhere, Category = "AIInfo")
 		TEnumAsByte<AIColorState> m_ColorState; 
+
+	bool bAIIsActive; 
 };

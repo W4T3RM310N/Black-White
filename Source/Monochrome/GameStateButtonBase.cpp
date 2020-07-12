@@ -18,7 +18,6 @@ AGameStateButtonBase::AGameStateButtonBase()
 	m_BoxComponent->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics); 
 	m_BoxComponent->SetCollisionProfileName("BlockAllDynamic"); 
 	m_BoxComponent->SetNotifyRigidBodyCollision(true); 
-	m_BoxComponent->OnComponentHit.AddDynamic(this, &AGameStateButtonBase::OnHit); 
 	RootComponent = m_BoxComponent; 
 
 	m_TriggerComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerComponent")); 
@@ -44,13 +43,28 @@ AGameStateButtonBase::AGameStateButtonBase()
 void AGameStateButtonBase::BeginPlay()
 {
 	Super::BeginPlay();
-	if (m_CurrentButtonColorState == ButtonBlack)
+
+	if (bIsVanishingButton == false)
 	{
-		m_SpriteComponent->SetSprite(m_BlackButtonSprite); 
+		if (m_CurrentButtonColorState == ButtonBlack)
+		{
+			m_SpriteComponent->SetSprite(m_BlackButtonSprite);
+		}
+		else if (m_CurrentButtonColorState == ButtonWhite)
+		{
+			m_SpriteComponent->SetSprite(m_WhiteButtonSprite);
+		}
 	}
-	else if (m_CurrentButtonColorState == ButtonWhite)
+	else if (bIsVanishingButton == true)
 	{
-		m_SpriteComponent->SetSprite(m_WhiteButtonSprite); 
+		if (m_CurrentButtonColorState == ButtonBlack)
+		{
+			m_SpriteComponent->SetSprite(m_BlackButtonSprite);
+		}
+		else if (m_CurrentButtonColorState == ButtonWhite)
+		{
+			m_SpriteComponent->SetSprite(m_WhiteButtonSprite); 
+		}
 	}
 }
 
@@ -59,12 +73,13 @@ void AGameStateButtonBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (!bIsVanishingButton)
+	UWorld* World = GetWorld();
+	if (World)
 	{
-		UWorld* World = GetWorld();
-		if (World)
+		AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+
+		if (!bIsVanishingButton)
 		{
-			AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
 			if ((int)OurGameState->GetGameColorState() != (int)m_CurrentButtonColorState)
 			{
 				if (m_CurrentButtonColorState == ButtonBlack)
@@ -79,48 +94,20 @@ void AGameStateButtonBase::Tick(float DeltaTime)
 				}
 			}
 		}
+		else if (bIsVanishingButton)
+		{
+			if ((int)OurGameState->GetGameColorState() == (int)m_CurrentButtonColorState)
+			{
+				SetActorEnableCollision(true);
+				SetActorHiddenInGame(false);
+			}
+			else if ((int)OurGameState->GetGameColorState() != (int)m_CurrentButtonColorState)
+			{
+				SetActorEnableCollision(false);
+				SetActorHiddenInGame(true);
+			}
+		}
 	}
-}
-
-void AGameStateButtonBase::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
-{
-	//if (bCanBePressed)
-	//{
-	//	if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
-	//	{
-	//		//Really annoying that I had to check each axis but wasn't working properly otherwise. 
-	//		if (NormalImpulse.Z > 0.0f && NormalImpulse.X == 0.0f && NormalImpulse.Y == 0.0f)
-	//		{
-	//			GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
-	//			bCanBePressed = false; 
-	//			if (m_CurrentButtonColorState == ButtonBlack)
-	//			{
-	//				m_SpriteComponent->SetSprite(m_WhiteButtonPressedSprite);
-	//				m_CurrentButtonColorState = ButtonWhite;
-	//				
-	//				UWorld* World = GetWorld(); 
-	//				if (World)
-	//				{
-	//					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState()); 
-	//					OurGameState->SetGameColorState(GameStateWhite); 
-	//				}
-	//			}
-	//			else if (m_CurrentButtonColorState == ButtonWhite)
-	//			{
-	//				m_SpriteComponent->SetSprite(m_BlackButtonPressedSprite);
-	//				m_CurrentButtonColorState = ButtonBlack; 
-
-	//				UWorld* World = GetWorld();
-	//				if (World)
-	//				{
-	//					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-	//					OurGameState->SetGameColorState(GameStateBlack);
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
-	
 }
 
 void AGameStateButtonBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
@@ -129,30 +116,57 @@ void AGameStateButtonBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, A
 	{
 		if (APlayerCharacter* pPlayerPawn = Cast<APlayerCharacter>(OtherActor))
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
-			bCanBePressed = false;
-			if (m_CurrentButtonColorState == ButtonBlack)
+			if (!bIsVanishingButton)
 			{
-				m_SpriteComponent->SetSprite(m_WhiteButtonPressedSprite);
-				m_CurrentButtonColorState = ButtonWhite;
-
-				UWorld* World = GetWorld();
-				if (World)
+				GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Red, TEXT("Jumped on button."));
+				bCanBePressed = false;
+				if (m_CurrentButtonColorState == ButtonBlack)
 				{
-					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-					OurGameState->SetGameColorState(GameStateWhite);
+					m_SpriteComponent->SetSprite(m_WhiteButtonPressedSprite);
+					m_CurrentButtonColorState = ButtonWhite;
+
+					UWorld* World = GetWorld();
+					if (World)
+					{
+						AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+						OurGameState->SetGameColorState(GameStateWhite);
+					}
+				}
+				else if (m_CurrentButtonColorState == ButtonWhite)
+				{
+					m_SpriteComponent->SetSprite(m_BlackButtonPressedSprite);
+					m_CurrentButtonColorState = ButtonBlack;
+
+					UWorld* World = GetWorld();
+					if (World)
+					{
+						AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+						OurGameState->SetGameColorState(GameStateBlack);
+					}
 				}
 			}
-			else if (m_CurrentButtonColorState == ButtonWhite)
+			else if (bIsVanishingButton)
 			{
-				m_SpriteComponent->SetSprite(m_BlackButtonPressedSprite);
-				m_CurrentButtonColorState = ButtonBlack;
+				SetActorEnableCollision(false);
+				SetActorHiddenInGame(true);
 
-				UWorld* World = GetWorld();
-				if (World)
+				if (m_CurrentButtonColorState == ButtonBlack)
 				{
-					AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
-					OurGameState->SetGameColorState(GameStateBlack);
+					UWorld* World = GetWorld();
+					if (World)
+					{
+						AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+						OurGameState->SetGameColorState(GameStateWhite);
+					}
+				}
+				else if (m_CurrentButtonColorState == ButtonWhite)
+				{
+					UWorld* World = GetWorld();
+					if (World)
+					{
+						AMonochromeGameStateBase* OurGameState = Cast<AMonochromeGameStateBase>(World->GetGameState());
+						OurGameState->SetGameColorState(GameStateBlack);
+					}
 				}
 			}
 		}
@@ -161,14 +175,17 @@ void AGameStateButtonBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, A
 
 void AGameStateButtonBase::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	bCanBePressed = true;
-	if (m_CurrentButtonColorState == ButtonBlack)
+	if (!bIsVanishingButton)
 	{
-		m_SpriteComponent->SetSprite(m_BlackButtonSprite); 
-	}
-	else if (m_CurrentButtonColorState == ButtonWhite)
-	{
-		m_SpriteComponent->SetSprite(m_WhiteButtonSprite); 
+		bCanBePressed = true;
+		if (m_CurrentButtonColorState == ButtonBlack)
+		{
+			m_SpriteComponent->SetSprite(m_BlackButtonSprite); 
+		}
+		else if (m_CurrentButtonColorState == ButtonWhite)
+		{
+			m_SpriteComponent->SetSprite(m_WhiteButtonSprite); 
+		}
 	}
 }
 

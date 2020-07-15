@@ -19,6 +19,12 @@ class MONOCHROME_API APlayerCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
 
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftWallJumpBox;
+
+	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightWallJumpBox;
+
 public:
 	// Sets default values for this character's properties
 	APlayerCharacter();
@@ -60,6 +66,8 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Player")
 	float m_jumpHeight;
 
+	int m_JumpType;
+
 	UPROPERTY(EditAnywhere, Category = "Player")
 	int m_AllowedJumps;
 	// Called every frame
@@ -75,17 +83,15 @@ public:
 
 	virtual void Landed(const FHitResult& Hit) override;
 
-	/*virtual void NotifyHit
-	(
-		class UPrimitiveComponent* MyComp,
-		AActor* Other,
-		class UPrimitiveComponent* OtherComp,
-		bool bSelfMoved,
-		FVector HitLocation,
-		FVector HitNormal,
-		FVector NormalImpulse,
-		const FHitResult& Hit
-	);*/
+	UFUNCTION()
+	void LeftOnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void RightOnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
 
 	UFUNCTION()
 	void DoubleJump();

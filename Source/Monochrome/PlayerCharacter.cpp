@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+#include "Components/BoxComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -43,6 +44,20 @@ APlayerCharacter::APlayerCharacter()
 	CameraBoom->TargetArmLength = 1000.f;
 	CameraBoom->SocketOffset = FVector(0.f, 0.f, 75.f);
 	CameraBoom->SetRelativeRotation(FRotator(0.f, 270.f, 0.f));
+
+	LeftWallJumpBox = CreateDefaultSubobject<UBoxComponent>("LeftWallJump");
+	LeftWallJumpBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	LeftWallJumpBox->SetCollisionProfileName("OverlapAll");
+	LeftWallJumpBox->OnComponentBeginOverlap.AddDynamic(this, &APlayerCharacter::LeftOnOverlapBegin);
+	LeftWallJumpBox->OnComponentEndOverlap.AddDynamic(this, &APlayerCharacter::OnOverlapEnd);
+	LeftWallJumpBox->SetupAttachment(RootComponent);
+
+	RightWallJumpBox = CreateDefaultSubobject<UBoxComponent>("RightWallJump");
+	RightWallJumpBox->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	RightWallJumpBox->SetCollisionProfileName("OverlapAll");
+	RightWallJumpBox->OnComponentBeginOverlap.AddDynamic(this, &APlayerCharacter::RightOnOverlapBegin);
+	RightWallJumpBox->OnComponentEndOverlap.AddDynamic(this, &APlayerCharacter::OnOverlapEnd);
+	RightWallJumpBox->SetupAttachment(RootComponent);
 
 	// Create a camera and attach to boom
 	SideViewCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("SideViewCamera"));
@@ -158,22 +173,51 @@ void APlayerCharacter::Landed(const FHitResult& Hit)
 	GetCharacterMovement()->GravityScale = 1.8f;
 }
 
-//void APlayerCharacter::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
-//{
-//
-//	if (Other->ActorHasTag("Block") == true)
-//	{
-//		GetCharacterMovement()->GravityScale = 0.2f;
-//		m_jumpCount = 2;
-//	}
-//}
+void APlayerCharacter::LeftOnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherComp->ComponentHasTag("Block"))
+	{
+		GetCharacterMovement()->GravityScale = 0.4f;
+		GetMovementComponent()->Velocity = FVector(0, 0, 0);
+		m_JumpType = 1;
+		m_jumpCount--;
+	}
+}
+
+void APlayerCharacter::RightOnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+{
+	if (OtherComp->ComponentHasTag("Block"))
+	{
+		GetCharacterMovement()->GravityScale = 0.4f;
+		GetMovementComponent()->Velocity = FVector(0, 0, 0);
+		m_JumpType = 2;
+		m_jumpCount--;
+	}
+}
+
+void APlayerCharacter::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	GetCharacterMovement()->GravityScale = 1.8f;
+	m_JumpType = 0;
+}
 
 void APlayerCharacter::DoubleJump()
 {
-	GetCharacterMovement()->GravityScale = 1.8f;
 	if (m_jumpCount <= m_AllowedJumps)
 	{
-		LaunchCharacter(FVector(0, 0, m_jumpHeight), false, true);
+		if (m_JumpType == 0)
+		{
+			LaunchCharacter(FVector(0, 0, m_jumpHeight), false, true);
+		}
+		else if (m_JumpType == 1)
+		{
+			LaunchCharacter(FVector(m_jumpHeight, 0, m_jumpHeight), false, true);
+		}
+		else if (m_JumpType == 2)
+		{
+			LaunchCharacter(FVector(-m_jumpHeight, 0, m_jumpHeight), false, true);
+		}
+
 		m_jumpCount++;
 	}
 }

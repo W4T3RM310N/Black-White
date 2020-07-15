@@ -18,6 +18,7 @@ ABlockActor::ABlockActor()
 	m_BoxComponent->SetCollisionProfileName("BlockAllDynamic");
 	m_BoxComponent->SetNotifyRigidBodyCollision(true);
 	m_BoxComponent->GetBodyInstance()->bLockYTranslation = true; 
+	m_BoxComponent->ComponentTags.Add("Block");
 	RootComponent = m_BoxComponent;
 
 	m_SpriteComponent = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("SpriteComponent"));

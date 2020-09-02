@@ -233,6 +233,10 @@ void AAISphere::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherA
 						bIsFollowing = false;
 					}
 				}
+				else if (bIsVanishingAI)
+				{
+					bIsFollowing = false;
+				}
 				
 			}
 		}

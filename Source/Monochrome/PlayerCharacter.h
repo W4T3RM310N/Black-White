@@ -62,6 +62,10 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Player")
 	int m_AllowedJumps;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Spawning")
+	TSubclassOf<AActor> m_DeathMarkerToSpawn; 
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -89,6 +93,9 @@ public:
 
 	UFUNCTION()
 	void DoubleJump();
+
+	UFUNCTION()
+	void SpawnDeathMarker(); 
 
 	ACheckpointActor* GetCheckpoint();
 

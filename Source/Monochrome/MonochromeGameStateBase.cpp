@@ -92,10 +92,10 @@ void AMonochromeGameStateBase::ResetLevelToLastCheckpoint()
 {
 	ResetAI(); 
 
-	RevertToCheckpointColorState(); 
 	
 	APlayerCharacter* pPlayer = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0)); 
 	pPlayer->Respawn(); 
+	RevertToCheckpointColorState(); 
 }
 
 void AMonochromeGameStateBase::ResetAI()

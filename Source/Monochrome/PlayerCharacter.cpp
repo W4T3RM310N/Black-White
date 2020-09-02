@@ -110,6 +110,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 	PlayerInputComponent->BindAction("SwitchGameState", IE_Pressed, this, &APlayerCharacter::SwitchGameState);
 	PlayerInputComponent->BindAction("Respawn", IE_Pressed, this, &APlayerCharacter::Respawn);
+	PlayerInputComponent->BindAction("SpawnDeathMarker", IE_Pressed, this, &APlayerCharacter::SpawnDeathMarker); 
 
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &APlayerCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &APlayerCharacter::TouchStopped);
@@ -143,8 +144,9 @@ void APlayerCharacter::SetRespawnPosition(FVector newRespawnPosition)
 
 void APlayerCharacter::Respawn()
 {
+	SpawnDeathMarker(); 
 	SetActorLocation(m_RespawnPosition);
-	GetMovementComponent()->Velocity = FVector(0,0,0);
+	GetMovementComponent()->Velocity = FVector(0,0,0); 
 }
 
 void APlayerCharacter::SetCheckpoint(ACheckpointActor* newCheckpoint)
@@ -176,6 +178,12 @@ void APlayerCharacter::DoubleJump()
 		LaunchCharacter(FVector(0, 0, m_jumpHeight), false, true);
 		m_jumpCount++;
 	}
+}
+
+void APlayerCharacter::SpawnDeathMarker()
+{
+	FActorSpawnParameters SpawnParams; 
+	AActor* SpawnedActorRef = GetWorld()->SpawnActor<AActor>(m_DeathMarkerToSpawn, GetActorLocation(), GetActorRotation(), SpawnParams);
 }
 
 ACheckpointActor* APlayerCharacter::GetCheckpoint()
